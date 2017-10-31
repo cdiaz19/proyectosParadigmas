@@ -1,6 +1,6 @@
 /* 
  * Proyecto Paradigmas de Programación
- * Main.java
+ * Venn.java
  * 
  * David Lobo Gúzman.
  * Cristian Díaz Jiménez.
@@ -64,18 +64,17 @@ public class Venn {
     System.out.printf("Intersección\n A: %s\n B: %s\n C: %s\n La interseccion: %s\n", A, B, C,
             interseccionS(A, B, C));
 
-    //A^B^C=
     final VennDiagram chart = GCharts.newVennDiagram(A.size(), B.size(), C.size(),
             interseccion(A, B).size(), interseccion(C, A).size(),
             interseccion(C, A).size(), interseccionS(A, B, C).size());
     /* VennDiagram(circle1Size, circle2Size, circle3Size, abIntersect, 
           caIntersect, bcIntersect, abcIntersect) */
 
-    chart.setTitle("Diagrama de Venn", BLACK, 16);
+    chart.setTitle("Diagrama de Venn Twitter", BLACK, 16);
     chart.setSize(600, 450);
     chart.setCircleLegends("Palabras Usadas Amigo", "Palabras Usadas Contactos", "Paginas Web");
     chart.setCircleColors(GREEN, YELLOW, WHITE);
-    chart.setBackgroundFill(Fills.newSolidFill(HONEYDEW));
+    chart.setBackgroundFill(Fills.newSolidFill(LIGHTBLUE));
     String url = chart.toURLString();
 
     System.err.println(url);
