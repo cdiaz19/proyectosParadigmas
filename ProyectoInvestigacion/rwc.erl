@@ -1,3 +1,10 @@
+% Proyecto Investigación Paradigmas de Programación
+% rwc.erl
+% 
+% David Lobo Gúzman.
+% Cristian Díaz Jiménez.
+%
+
 -module(rwc).
 -export([royale/1]).
 
@@ -13,16 +20,25 @@ getpos(X,[X|_T],C)->C;
 getpos(X,[H|T],C)->getpos(X,T,C+1).
 
 % parseo
-
-% coding
+parseo(X)when (X >= 20)->X+30;
+parseo(X)when (X rem 10 == 2)-> X+3;
+parseo(X)when (X rem 10 == 6)-> X+3;
+parseo(X)when (X rem 10 == 5)-> X-3;
+parseo(X)when (X rem 10 == 9)-> X-3;
+parseo(X)->X.
 
 % principal
 royale([])->[];
 royale([X])->[X];
 royale([H|T])->royale(T, [H], [1], 1).
 
-% (RL LV LS Count)
+% (RL LV LS Count) REVISAR
 
 royale([],LV,LS,C)->LS;
-royale([H|T],LV,LS,C)->esmiembro(H, LV);
-royale([H|T],LV,LS,C)->royale(T, LV++[H], LS++[C+1], C+1).
+royale([H|T],LV,LS,C)->
+	case esmiembro(H, LV) of
+	true->
+	    royale(T, LV, LS++[parseo(getpos(H, LV, 1))], C);
+        false->
+	    royale(T, LV++[H], LS++[parseo(C+1)], C+1)
+	end.
