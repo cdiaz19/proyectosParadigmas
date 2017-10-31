@@ -6,14 +6,13 @@
  * Cristian Díaz Jiménez.
  *
  */
-package javaapplication1;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class royaleandcheese {
+public class royalewithcheese {
 
     public int parseo(int n) {
         if (n >= 20) {
@@ -48,7 +47,7 @@ public class royaleandcheese {
 
     public static void main(String[] args) throws IOException {
 
-        royaleandcheese m = new royaleandcheese();
+        royalewithcheese m = new royalewithcheese();
         Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()) {
@@ -56,3 +55,4 @@ public class royaleandcheese {
         }
     }
 }
+

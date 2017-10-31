@@ -1,6 +1,6 @@
 /* 
  * Proyecto Investigación Paradigmas de Programación
- * royaleandcheese.c
+ * royalewithcheese.c
  * 
  * David Lobo Gúzman.
  * Cristian Díaz Jiménez.
@@ -62,9 +62,11 @@ int main(int argc, char** argv) {
                 vecOut[j++] = vecAux[var[i] - 'a'] % 10 + '0';
             }
         }
+
         vecOut[j] = '\0';
         parseo();
         printf("%d \n", vecOut);
+	free(var);
     }
 
     free(var);
