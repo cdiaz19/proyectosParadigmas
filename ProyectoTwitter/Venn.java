@@ -57,16 +57,16 @@ public class Venn {
 
     System.out.printf("Intersección\n A: %s\n B: %s\n La interseccion: %s\n", A, B,
             interseccion(A, B));
-    System.out.printf("Intersección\n C: %s\n A: %s\n La interseccion: %s\n", A, B,
-            interseccion(C, A));
     System.out.printf("Intersección\n C: %s\n A: %s\n La interseccion: %s\n", C, A,
             interseccion(C, A));
+    System.out.printf("Intersección\n C: %s\n A: %s\n La interseccion: %s\n", C, B,
+            interseccion(C, B));
     System.out.printf("Intersección\n A: %s\n B: %s\n C: %s\n La interseccion: %s\n", A, B, C,
             interseccionS(A, B, C));
 
     final VennDiagram chart = GCharts.newVennDiagram(A.size(), B.size(), C.size(),
             interseccion(A, B).size(), interseccion(C, A).size(),
-            interseccion(C, A).size(), interseccionS(A, B, C).size());
+            interseccion(C, B).size(), interseccionS(A, B, C).size());
     /* VennDiagram(circle1Size, circle2Size, circle3Size, abIntersect, 
           caIntersect, bcIntersect, abcIntersect) */
 

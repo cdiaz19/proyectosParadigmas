@@ -1,9 +1,9 @@
 #include <stdlib.h>
+#include <unistd.h>
 
 int main(int argc, char** argv) { 
   
   /* Compilar archivo en Erlang */
-  
   
   /* Compilar y Ejecutar el Java */
   system("javac -cp .:charts4j-1.3.jar Venn.java");
