@@ -4,7 +4,6 @@
 % David Lobo Gúzman.
 % Cristian Díaz Jiménez.
 %
-
 -module(rwc).
 -export([royale/1]).
 
