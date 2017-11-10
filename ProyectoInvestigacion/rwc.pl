@@ -25,4 +25,6 @@ parseo(X, Y):- Y is X,!.
 % principal
 royale([],[]):-!.
 royale([X],[X]):-!.
+royale([_H|T],[Y|Ys]):-royale(T, [H], [1], 1, Zs).
 
+royale([],LV,LS,C,LS):-!.

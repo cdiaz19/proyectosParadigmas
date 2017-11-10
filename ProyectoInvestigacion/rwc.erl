@@ -31,13 +31,11 @@ royale([])->[];
 royale([X])->[X];
 royale([H|T])->royale(T, [H], [1], 1).
 
-% (RL LV LS Count) REVISAR
+% (RL LV LS Count)
+royale([],LV,LS,C)->lists:concat(LS);
+royale([H|T],LV,LS,C)->royale([H|T],LV,LS,C,esmiembro(H,LV)).
 
-royale([],LV,LS,C)->LS;
-royale([H|T],LV,LS,C)->
-	case esmiembro(H, LV) of
-	true->
-	    royale(T, LV, LS++[parseo(getpos(H, LV, 1))], C);
-        false->
-	    royale(T, LV++[H], LS++[parseo(C+1)], C+1)
-	end.
+%Cond
+royale([H|T],LV,LS,C,true)->royale(T, LV, LS++[parseo(getpos(H, LV, 1))], C);
+royale([H|T],LV,LS,C,false)->royale(T, LV++[H], LS++[parseo(C+1)], C+1).
+
