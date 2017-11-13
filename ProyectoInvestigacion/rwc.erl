@@ -7,16 +7,15 @@
 -module(rwc).
 -export([royale/1]).
 
-%esmiembro?
-esmiembro(X,[])->false;
-esmiembro(X,[X])->true;
-esmiembro(X,[X|_T])->true;
-esmiembro(X,[H|T])->esmiembro(X, T).
+%esMiembro?
+esMiembro(X,[])->false;
+esMiembro(X,[X|_T])->true;
+esMiembro(X,[H|T])->esMiembro(X, T).
 
 % get-pos
-getpos(X,[],C)->[];
-getpos(X,[X|_T],C)->C;
-getpos(X,[H|T],C)->getpos(X,T,C+1).
+getPos(X,[],C)->[];
+getPos(X,[X|_T],C)->C;
+getPos(X,[H|T],C)->getPos(X,T,C+1).
 
 % parseo
 parseo(X)when (X >= 20)->X+30;
@@ -28,14 +27,13 @@ parseo(X)->X.
 
 % principal
 royale([])->[];
-royale([X])->[X];
 royale([H|T])->royale(T, [H], [1], 1).
 
 % (RL LV LS Count)
 royale([],LV,LS,C)->lists:concat(LS);
-royale([H|T],LV,LS,C)->royale([H|T],LV,LS,C,esmiembro(H,LV)).
+royale([H|T],LV,LS,C)->royale([H|T],LV,LS,C,esMiembro(H,LV)).
 
 %Cond
-royale([H|T],LV,LS,C,true)->royale(T, LV, LS++[parseo(getpos(H, LV, 1))], C);
+royale([H|T],LV,LS,C,true)->royale(T, LV, LS++[parseo(getPos(H, LV, 1))], C);
 royale([H|T],LV,LS,C,false)->royale(T, LV++[H], LS++[parseo(C+1)], C+1).
 
