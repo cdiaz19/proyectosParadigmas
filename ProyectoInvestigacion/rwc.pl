@@ -24,13 +24,12 @@ parseo(X, Y):- 5 is mod(X, 10), Y is X-3, !.
 parseo(X, Y):- 9 is mod(X, 10), Y is X-3, !.
 parseo(X,Y):- Y is X, !.
 
-exp([_A,B|C],[B|C]):-!.
 royale([],[]):-!.
 royale([A,B|C],R):- esMiembro(B,[A],X),royale([B|C],C,[A],1,X,[1],R).
 
 royale([A],[],_,Pos,0,Lf,R):- Pos1 is Pos+1, parseo(Pos1,X), append(Lf,[X],R),!.
 
-royale([A],[],_,_,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), append(Lf,[X],R),!.
+royale([A],[],Nw,_,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), append(Lf,[X],R),!.
 
 royale([A|B],[C|D],Nw,Pos,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), 
 									append(Lf,[X],Lf1),esMiembro(C,Nw,M),
