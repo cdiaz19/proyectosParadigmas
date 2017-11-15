@@ -1,12 +1,12 @@
 %
-%Proyecto Investigación Paradigmas de Programación
+% Proyecto Investigación Paradigmas de Programación
 % rwc.pl
 % 
 % David Lobo Gúzman.
 % Cristian Díaz Jiménez.
 %
 
-% esMiembro?	
+% esMiembro?
 esMiembro(A,[],0):-!.
 esMiembro(A,[A|_T],1):-!.
 esMiembro(A,[_H|T],R):-esMiembro(A,T,R).
@@ -24,18 +24,12 @@ parseo(X, Y):- 5 is mod(X, 10), Y is X-3, !.
 parseo(X, Y):- 9 is mod(X, 10), Y is X-3, !.
 parseo(X,Y):- Y is X, !.
 
-exp([_A,B|C],[B|C]):-!.
+% Principal
 royale([],[]):-!.
 royale([A,B|C],R):- esMiembro(B,[A],X),royale([B|C],C,[A],1,X,[1],R).
-
 royale([A],[],_,Pos,0,Lf,R):- Pos1 is Pos+1, parseo(Pos1,X), append(Lf,[X],R),!.
-
 royale([A],[],_,_,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), append(Lf,[X],R),!.
 
-royale([A|B],[C|D],Nw,Pos,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), 
-									append(Lf,[X],Lf1),esMiembro(C,Nw,M),
-									royale(B,D,Nw,Pos,M,Lf1,R).
+royale([A|B],[C|D],Nw,Pos,1,Lf,R):- getPos(A,Nw,P), parseo(P,X), append(Lf,[X],Lf1),esMiembro(C,Nw,M), royale(B,D,Nw,Pos,M,Lf1,R).
 
-royale([A|B],[C|D],Nw,Pos,0,Lf,R):- append(Nw,[A],Nw1),Pos1 is Pos+1,
-									parseo(Pos1,X),append(Lf,[X],Lf1),esMiembro(C,Nw1,M),
-									royale(B,D,Nw1,Pos1,M,Lf1,R).
+royale([A|B],[C|D],Nw,Pos,0,Lf,R):- append(Nw,[A],Nw1),Pos1 is Pos+1,parseo(Pos1,X),append(Lf,[X],Lf1),esMiembro(C,Nw1,M),royale(B,D,Nw1,Pos1,M,Lf1,R).

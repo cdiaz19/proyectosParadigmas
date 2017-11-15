@@ -25,10 +25,6 @@
           ((= (remainder pos-elem 10) 9) (- pos-elem 3))
           (else pos-elem))))
 
-(define coding
-  (lambda (l)
-    (map (lambda (x) (parseo x)) l)))
-
 ; Principal
 (define royale
   (lambda(L)
@@ -38,6 +34,6 @@
 
 (define royale-aux
   (lambda (RL LV LS Count)
-    (cond ((null? RL) (coding LS))
-          ((es-miembro? (car RL) LV) (royale-aux (cdr RL) LV (append LS (list (get-pos (car RL) LV 1))) Count))
-          (else (royale-aux (cdr RL) (append LV (list (car RL))) (append LS (list (+ Count 1))) (+ Count 1))))))
+    (cond ((null? RL) LS)
+          ((es-miembro? (car RL) LV) (royale-aux (cdr RL) LV (append LS (list (parseo(get-pos (car RL) LV 1)))) Count))
+          (else (royale-aux (cdr RL) (append LV (list (car RL))) (append LS (list (parseo (+ Count 1)))) (+ Count 1))))))
