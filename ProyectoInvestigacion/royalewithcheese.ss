@@ -42,3 +42,4 @@
           (else (royale-aux (cdr RL) 
             (append LV (list (car RL))) 
             (append LS (list (parseo (+ Count 1)))) (+ Count 1))))))
+
