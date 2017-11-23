@@ -2,8 +2,8 @@
 
 ### Proyectos
 
-* Proyecto1 - Twitter.
-* Proyecto2 - Proyecto de Investigacion (Royale with Cheese).
+* Proyecto1 - TwitterAPI.(Erlang - Prolog)
+* Proyecto2 - Proyecto de Investigacion - Problema 3376 Royale with Cheese.
 
 ### Tech
 

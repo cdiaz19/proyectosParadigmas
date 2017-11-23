@@ -35,5 +35,10 @@
 (define royale-aux
   (lambda (RL LV LS Count)
     (cond ((null? RL) LS)
-          ((es-miembro? (car RL) LV) (royale-aux (cdr RL) LV (append LS (list (parseo(get-pos (car RL) LV 1)))) Count))
-          (else (royale-aux (cdr RL) (append LV (list (car RL))) (append LS (list (parseo (+ Count 1)))) (+ Count 1))))))
+          ((es-miembro? (car RL) LV) 
+            (royale-aux (cdr RL) LV 
+              (append LS 
+                (list (parseo(get-pos (car RL) LV 1)))) Count))
+          (else (royale-aux (cdr RL) 
+            (append LV (list (car RL))) 
+            (append LS (list (parseo (+ Count 1)))) (+ Count 1))))))

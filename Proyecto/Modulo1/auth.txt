@@ -1,0 +1,22 @@
+
+inets:start().
+ssl:start().
+
+Auth = {auth,"Ln8bXKoEY60gZPQ9wj0bCynfA",
+"dGTbJkUJlLNdKn2zX9iSykry8Xl3CHJ7DQwScKpFnLqkhjpEEa",
+"2357424468-w2o7Vbizvy6NThaqN74DWGeYJtEMzRrGZYA1Hbp",
+"ghMzTVFBq9YKVlGujPYbqP05vRZnxVtNbTDDAguu1CefR",hmac_sha1}.
+
+
+twittler:start(Auth).
+
+T=twittler:timeline(user,[{"screen_name","MrCianTwomey"},{"count", "10"}]).
+
+tweets de amigo !
+tweets de menciones!
+texto de urls
+
+
+
+
+
